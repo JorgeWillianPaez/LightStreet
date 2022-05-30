@@ -10,8 +10,8 @@ const devEnv = {
         ? ['./dist/entities/**/*.js']
         : ['./src/entities/**/*.ts'],
     migrations: process.env.NODE_ENV === 'production'
-        ? ['./dist/migrations/**/*.js']
-        : ['./src/migrations/**/*.ts'],
+        ? ['./dist/database/migrations/**/*.js']
+        : ['./src/database/migrations/**/*.ts'],
     cli: {
         migrationsDir: './src/database/migrations'
     }
