@@ -1,8 +1,12 @@
 import { StyleSheet } from "react-native";
 
+const yellow = '#EBDF2D';
+const white = '#FFFFFF';
+const black = '#1E1D1D';
+
 const styles = StyleSheet.create({
     pageContainer: {
-        backgroundColor: '#404040',
+        backgroundColor: black,
         height: '100%',
     },
     mainContainer: {
@@ -21,12 +25,17 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     textTittleLight: {
-        color: '#FFFF00',
-        fontSize: 50,
+        color: yellow,
+        fontSize: 30,
     },
     textTittleStreet: {
-        color: '#FFFFFF',
-        fontSize: 50,
+        color: white,
+        fontSize: 30,
+    },
+    slogan: {
+        color: '#A0A0A0',
+        fontSize: 13,
+        textAlign: 'center'
     },
     formLogin: {
         flex: 1,
@@ -37,25 +46,49 @@ const styles = StyleSheet.create({
         marginTop: 60,
     },
     inputLogin: {
-        color: '#FFFFFF',
+        backgroundColor: white,
         height: 50,
-        width: 300,
+        width: 320,
         fontSize: 18,
-        borderColor: '#FFFFFF',
-        borderWidth: 1,
-        borderRadius: 4,
+        borderRadius: 8,
         padding: 10,
     },
     inputLoginUserEmail: {
         marginBottom: 18,
     },
-    buttonLogin: {
-        backgroundColor: '#FFFF00',
-        borderRadius: 4,
-        width: 300,
-        marginTop: 12,
-        padding: 10,
+    buttonsContainer: {
+        flex: 1,
+        flexDirection: "row",
+        width: 320,
+        justifyContent: 'space-between',
+        marginTop: 40,
     },
+    buttonSignIn: {
+        backgroundColor: black,
+        color: white,
+        width: '45%',
+        borderColor: yellow,
+        borderWidth: 1,
+        borderRadius: 6,
+    },
+    buttonLogin: {
+        backgroundColor: yellow,
+        width: '45%',
+        borderRadius: 6,
+    },
+    textButtonSignIn: {
+        color: white,
+        fontWeight: "bold",
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        height: 50
+    },
+    textButtonLogin: {
+        fontWeight: "bold",
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        height: 50,
+    }
 })
 
 export default styles;

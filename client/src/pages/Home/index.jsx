@@ -1,11 +1,16 @@
 import { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import Toast from 'react-native-toast-message';
+import MapMenu from '../../components/MapMenu';
+import styles from './styles';
+
+import { suspectMarkers, carMarkers, weaponMarkers } from './markers';
+
+import { darkMode, standardMode } from './mapStyles';
 
 const Home = () => {
 
-    const [markers, setMarkers] = useState([]);
     const [region, setRegion] = useState({
         latitude: -25.446293519892595,
         longitude: -49.358515084856016,
@@ -13,21 +18,19 @@ const Home = () => {
         longitudeDelta: 0.04,
     })
 
-    const addToMarkers = (e) => {
-        const coordinates = e.coordinate;
+    // const addToMarkers = (e) => {
+    //     const coordinates = e.coordinate;
 
-        const newMarker = {
-            latitude: coordinates.latitude,
-            longitude: coordinates.longitude,
-        }
+    //     const newMarker = {
+    //         latitude: coordinates.latitude,
+    //         longitude: coordinates.longitude,
+    //     }
 
-        setMarkers([...markers, newMarker]);
-
-        Toast.show({
-            type: 'success',
-            text1: 'Novo local adicionado!'
-        })
-    }
+    //     Toast.show({
+    //         type: 'success',
+    //         text1: 'Novo local adicionado!'
+    //     })
+    // }
 
     return (
         <View style={styles.container}>
@@ -41,28 +44,31 @@ const Home = () => {
                 loadingBackgroundColor='#404040'
                 minZoomLevel={0}
                 maxZoomLevel={20}
-                onPress={e => addToMarkers(e.nativeEvent)}
+                // onPress={e => addToMarkers(e.nativeEvent)}
+                customMapStyle={darkMode}
             >
-                {markers.map((item, index) => (
+                {suspectMarkers.map((item, index) => (
                     <Marker key={index} coordinate={{
                         latitude: item.latitude,
                         longitude: item.longitude,
-                    }} />
+                    }} icon={require('../../assets/SuspectIcon.png')} />
+                ))}
+                {carMarkers.map((item, index) => (
+                    <Marker key={index} coordinate={{
+                        latitude: item.latitude,
+                        longitude: item.longitude,
+                    }} icon={require('../../assets/CarIcon.png')} />
+                ))}
+                {weaponMarkers.map((item, index) => (
+                    <Marker key={index} coordinate={{
+                        latitude: item.latitude,
+                        longitude: item.longitude,
+                    }} icon={require('../../assets/WeaponIcon.png')} />
                 ))}
             </MapView>
+            <MapMenu />
         </View>
     )
-}
-
-const styles = {
-    container: {
-        ...StyleSheet.absoluteFillObject,
-        backgroundColor: '#ffffff',
-        justifyContent: 'space-between',
-    },
-    map: {
-        ...StyleSheet.absoluteFillObject,
-    }
 }
 
 export default Home;
