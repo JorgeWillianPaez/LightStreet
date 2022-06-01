@@ -20,7 +20,7 @@ export default function App() {
                     headerShown: false
                 }}>
                     <Stack.Screen name='LoginPage' component={LoginForm} />
-                    <Stack.Screen name='SignInPage' component={SignInForm} />
+                    {/* <Stack.Screen name='SignInPage' component={SignInForm} /> */}
                     <Stack.Screen name='HomePage' component={Home} />
                 </Stack.Navigator>
                 <Toast />

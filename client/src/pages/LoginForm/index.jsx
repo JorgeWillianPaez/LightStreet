@@ -1,8 +1,9 @@
 import styles from "./styles";
-import { ScrollView, View, Text, TextInput, TouchableOpacity, PermissionsAndroid } from 'react-native';
+import { ScrollView, View, Text, TextInput, TouchableOpacity, PermissionsAndroid, Image } from 'react-native';
 import Toast from 'react-native-toast-message'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from '@react-navigation/native';
 
 const LoginForm = ({ navigation }) => {
 
@@ -37,57 +38,61 @@ const LoginForm = ({ navigation }) => {
 
     const handleLogin = () => {
 
-        for (let i = 0; i < users.length; i++) {
-            const currentUser = users[i];
-            if (currentUser.email == typedInputEmail) {
-                if (currentUser.password == typedPassword) {
-                    Toast.show({
-                        type: "success",
-                        text1: "Login realizado com sucesso!",
-                    })
+        // for (let i = 0; i < users.length; i++) {
+        //     const currentUser = users[i];
+        //     if (currentUser.email == typedInputEmail) {
+        //         if (currentUser.password == typedPassword) {
+        //             Toast.show({
+        //                 type: "success",
+        //                 text1: "Login realizado com sucesso!",
+        //             })
 
-                    return navigation.navigate('HomePage');
-                } else {
-                    return Toast.show({
-                        type: "error",
-                        text1: "Senha inválida!",
-                    })
-                }
-            }
-        }
-        Toast.show({
-            type: "error",
-            text1: "E-mail não existe!",
-        })
-
+        //             return navigation.navigate('HomePage');
+        //         } else {
+        //             return Toast.show({
+        //                 type: "error",
+        //                 text1: "Senha inválida!",
+        //             })
+        //         }
+        //     }
+        // }
+        // Toast.show({
+        //     type: "error",
+        //     text1: "E-mail não existe!",
+        // })
+        return navigation.navigate('HomePage');
     }
 
     return (
         <ScrollView style={styles.pageContainer}>
             <View style={styles.contentContainer}>
                 <View style={styles.title}>
-                    <Text style={styles.textTittleLight}>Light</Text>
-                    <Text style={styles.textTittleStreet}>Street</Text>
+                    <Text style={styles.textTittleStreet}>Entrar no </Text>
+                    <Text style={styles.textTittleLight}>LightStreet</Text>
                 </View>
+                <Text style={styles.slogan} >Sua segurança vem em primeiro lugar</Text>
+
                 <View style={styles.formLogin}>
 
-                    <View style={{ width: 300 }}>
-                        <Text style={{ color: '#FFFFFF', marginBottom: 6 }} >Nome de usuário ou e-mail:</Text>
+                    <TextInput placeholder="E-mail" style={[styles.inputLogin, styles.inputLoginUserEmail]} onChangeText={text => setTypedInputEmail(text)} />
+                    <View>
+                        <TextInput placeholder="Senha" style={styles.inputLogin} secureTextEntry onChangeText={text => setTypedPassword(text)} />
                     </View>
-                    <TextInput style={[styles.inputLogin, styles.inputLoginUserEmail]} onChangeText={text => setTypedInputEmail(text)} />
 
-                    <View style={{ width: 300 }}>
-                        <Text style={{ color: '#FFFFFF', marginBottom: 6 }}>Senha:</Text>
+                    <View style={styles.buttonsContainer}>
+                        <TouchableOpacity style={styles.buttonSignIn} onPress={() => navigation.navigate('SignInPage')}>
+                            <Text style={styles.textButtonSignIn}>Criar conta</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.buttonLogin} onPress={handleLogin}>
+                            <Text style={styles.textButtonLogin}>Entrar</Text>
+                        </TouchableOpacity>
                     </View>
-                    <TextInput style={styles.inputLogin} secureTextEntry onChangeText={text => setTypedPassword(text)} />
 
-                    <TouchableOpacity style={styles.buttonLogin} onPress={handleLogin}>
-                        <Text style={{ textAlign: 'center' }}>LOGIN</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.buttonLogin} onPress={() => navigation.navigate('SignInPage')}>
-                        <Text style={{ textAlign: 'center' }} >CRIAR CONTA</Text>
-                    </TouchableOpacity>
+                    <View style={{ flex: 1, flexDirection: 'row', marginTop: 210 }}>
+                        <Text style={{ color: '#FFFFFF' }}>Esqueceu sua senha? </Text>
+                        {/* <Link to={} style={{ color: '#EBDF2D' }}>Clique aqui</Link> */}
+                    </View>
                 </View>
             </View>
         </ScrollView>
