@@ -65,7 +65,8 @@ const LoginForm = ({ navigation }) => {
 
     return (
         <ScrollView style={styles.pageContainer}>
-            <View style={styles.contentContainer}>
+            <View>
+                <Image source={require('../../assets/AppMainIcon.png')} style={{ width: 110, height: 110, alignSelf: 'center', marginTop: 100 }} />
                 <View style={styles.title}>
                     <Text style={styles.textTittleStreet}>Entrar no </Text>
                     <Text style={styles.textTittleLight}>LightStreet</Text>
