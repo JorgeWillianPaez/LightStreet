@@ -1,7 +1,20 @@
+import { useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
+import MenuIcons from "../MenuIcons";
 
 const MapMenu = () => {
+
+    const [reportButtonEnable, setReportButtonEnable] = useState(true);
+
+    const invertReportButton = () => {
+        if (reportButtonEnable == true) {
+            setReportButtonEnable(false);
+        } else {
+            setReportButtonEnable(true);
+        }
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.shareAndSettings}>
@@ -11,10 +24,19 @@ const MapMenu = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.shareAndSettings}>
-                <TouchableOpacity style={styles.buttonsMenu} >
-                    <Image source={require('../../assets/ExclamationIcon.png')} style={{ width: 80, height: 80, bottom: 8 }} />
+                {reportButtonEnable ? <TouchableOpacity style={styles.buttonsMenu} onPress={invertReportButton} >
+                    <Image source={require('../../assets/ExclamationIcon.png')} style={{ width: 80, height: 80 }} />
                     <Text style={{ color: '#FFFFFF', fontWeight: "bold", fontSize: 18, marginBottom: 54 }}>Reportar</Text>
                 </TouchableOpacity>
+                    :
+                    <View>
+                        <MenuIcons />
+                        <TouchableOpacity style={styles.buttonsMenu} onPress={invertReportButton} >
+                            <Image source={require('../../assets/BackArrowIcon.png')} style={{ width: 80, height: 80, marginBottom: 30 }} />
+                        </TouchableOpacity>
+                    </View>
+                }
+
             </View>
             <View style={styles.shareAndSettings}>
                 <TouchableOpacity style={styles.buttonsMenu} >
