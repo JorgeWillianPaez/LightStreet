@@ -1,24 +1,50 @@
 import { StyleSheet } from 'react-native';
 
+const black = '#1E1D1D'
+const gray = '#3C3C3C'
+
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#3C3C3C',
-        height: 100,
-        width: 300,
+        position: 'absolute',
         flex: 1,
         flexDirection: 'row',
-        position: 'absolute',
-        bottom: 60,
-        right: 0,
-        left: 0,
-        borderTopLeftRadius: 50,
-        borderTopRightRadius: 50,
+        justifyContent: 'center',
+        width: "100%",
+        height: 80,
+        borderTopRightRadius: 18,
+        borderTopLeftRadius: 18,
+        backgroundColor: black,
+        top: "90.5%",
     },
-    buttons: {
+    shareAndSettings: {
         flex: 1,
-        flexDirection: 'column',
-        marginBottom: 20,
-    }
-})
+        alignItems: 'center',
+    },
+    buttonsMenu: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    iconsContainer: {
+        position: 'absolute',
+        width: '80%',
+        height: 60,
+        backgroundColor: gray,
+        bottom: '100%',
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        borderTopRightRadius: 50,
+        borderTopLeftRadius: 50,
+    },
+    iconsButton: {
+        position: 'absolute',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 30,
+        width: "60%",
+    },
+});
 
 export default styles;
