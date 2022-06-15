@@ -6,6 +6,7 @@ import Toast from 'react-native-toast-message';
 import MapMenu from '../../components/MapMenu';
 import MenuIcons from '../../components/MenuIcons';
 import styles from './styles';
+import AlertModal from '../../components/AlertModal';
 
 import { suspectMarkers, carMarkers, weaponMarkers } from './markers';
 
@@ -13,6 +14,7 @@ import { darkMode, standardMode } from './mapStyles';
 
 const Home = () => {
 
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const [locationPermission, setLocationPermission] = useState(false);
 
     const [region, setRegion] = useState({
@@ -78,8 +80,9 @@ const Home = () => {
             </MapView>
             {reportButtonEnable
                 ? <MapMenu setReportButtonEnable={setReportButtonEnable} />
-                : <MenuIcons setReportButtonEnable={setReportButtonEnable} />
+                : <MenuIcons setReportButtonEnable={setReportButtonEnable} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
             }
+            <AlertModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
         </View>
     )
 }

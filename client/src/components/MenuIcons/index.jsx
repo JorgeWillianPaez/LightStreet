@@ -1,24 +1,24 @@
 import { View, TouchableOpacity, Image, Text } from 'react-native';
 import styles from './styles';
 
-const MenuIcons = ({ setReportButtonEnable }) => {
+const MenuIcons = ({ setReportButtonEnable, setIsModalVisible }) => {
     return (
         <View style={styles.container}>
             <View style={styles.iconsContainer}>
                 <View style={styles.shareAndSettings}>
-                    <TouchableOpacity style={styles.iconsButton} >
+                    <TouchableOpacity style={styles.iconsButton} onPress={() => setIsModalVisible(true)} >
                         <Image source={require('../../assets/SuspectIcon.png')} style={{ width: 60, height: 60 }} />
                         <Text style={{ color: '#FFFFFF' }}>Pessoa suspeita</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.shareAndSettings}>
-                    <TouchableOpacity style={styles.iconsButton} >
+                    <TouchableOpacity style={styles.iconsButton} onPress={() => setIsModalVisible(true)} >
                         <Image source={require('../../assets/WeaponIcon.png')} style={{ width: 60, height: 60 }} />
                         <Text style={{ color: '#FFFFFF' }}>Assalto</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.shareAndSettings}>
-                    <TouchableOpacity style={styles.iconsButton} >
+                    <TouchableOpacity style={styles.iconsButton} onPress={() => setIsModalVisible(true)} >
                         <Image source={require('../../assets/CarIcon.png')} style={{ width: 60, height: 60 }} />
                         <Text style={{ color: '#FFFFFF' }}>Carro suspeito</Text>
                     </TouchableOpacity>
