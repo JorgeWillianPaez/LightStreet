@@ -81,7 +81,7 @@ const LoginForm = ({ navigation }) => {
                     </View>
 
                     <View style={styles.buttonsContainer}>
-                        <TouchableOpacity style={styles.buttonSignIn} onPress={() => navigation.navigate('SignInPage')}>
+                        <TouchableOpacity style={styles.buttonSignIn} >
                             <Text style={styles.textButtonSignIn}>Criar conta</Text>
                         </TouchableOpacity>
 
@@ -92,7 +92,7 @@ const LoginForm = ({ navigation }) => {
 
                     <View style={{ flex: 1, flexDirection: 'row', marginTop: 210 }}>
                         <Text style={{ color: '#FFFFFF' }}>Esqueceu sua senha? </Text>
-                        {/* <Link to={} style={{ color: '#EBDF2D' }}>Clique aqui</Link> */}
+                        <Text style={{ color: '#EBDF2D' }}>Clique aqui</Text>
                     </View>
                 </View>
             </View>
