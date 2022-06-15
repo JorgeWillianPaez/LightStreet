@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     modalContainer: {
         position: "relative",
-        backgroundColor: "#3A3A3A",
+        backgroundColor: "#1E1D1C",
         borderRadius: 18,
         display: "flex",
     },
@@ -37,19 +37,28 @@ const styles = StyleSheet.create({
         padding: 20,
         height: "100%",
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
     },
     selectTypeContainer: {
+        position: "relative",
         backgroundColor: "#151515",
         borderRadius: 6,
+        padding: 4
     },
     selectTypeText: {
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+    },
+    selectTypeImage: {
+        position: "absolute",
+        right: 10,
+        top: 5,
+        width: 50,
+        height: 50
     },
     commentTextArea: {
         color: "#FFFFFF",
         backgroundColor: "#151515",
-        height: 100,
+        height: 120,
         padding: 10,
         borderRadius: 6,
     },
@@ -64,10 +73,31 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     createModalButtonText: {
-        color: "#000000",
+        color: "#151515",
         textAlign: "center",
         fontWeight: "bold",
         fontSize: 18
+    },
+    dateHourContainer: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        color: "#FFFFFF"
+    },
+    dateHourContent: {
+        backgroundColor: "#151515",
+        height: 70,
+        borderRadius: 6,
+    },
+    dateContent: {
+        width: "48%",
+    },
+    hourContent: {
+        width: "48%",
+    },
+    addImage: {
+        width: 50,
+        height: 50,
     },
     important: {
         color: "#EBDF2D",
