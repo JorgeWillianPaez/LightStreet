@@ -1,9 +1,17 @@
+import { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from './styles';
 import Modal from 'react-native-modal';
 import RNPickerSelect from 'react-native-picker-select';
 
 const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, setRNPickerSelectIcon }) => {
+
+    const [isPlaceAlertModalVisible, setIsPlaceAlertModalVisible] = useState(false);
+
+    const switchModalVisible = () => {
+        setIsPlaceAlertModalVisible(true);
+        setIsModalVisible(false);
+    }
 
     return (
         <View style={styles.container}>
@@ -25,8 +33,6 @@ const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, set
                                     return <Image style={styles.selectTypeImage} source={require("../../assets/WeaponIcon.png")} />
                                 } else if (rnPickerSelectIcon == "Suspect Car") {
                                     return <Image style={styles.selectTypeImage} source={require("../../assets/CarIcon.png")} />
-                                } else {
-                                    console.log("SELECIONE UMA OPÇÃO");
                                 }
                             }} onValueChange={(value) => setRNPickerSelectIcon(value)} items={[
                                 { label: "Pessoa Suspeita", value: "Suspect Person" },
@@ -56,10 +62,21 @@ const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, set
                             <Image style={styles.addImage} source={require("../../assets/addImageModal.png")} />
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={styles.createModalButton}>
+                    <TouchableOpacity style={styles.createModalButton} onPress={switchModalVisible}>
                         <Text style={styles.createModalButtonText}>Criar</Text>
                     </TouchableOpacity>
                 </View>
+            </Modal>
+            <Modal style={styles.placeAlertModalContainer} isVisible={isPlaceAlertModalVisible}>
+                <TouchableOpacity onPress={() => setIsPlaceAlertModalVisible(false)}>
+                    <Text style={styles.chooseOnMapModalCloseText}>X</Text>
+                </TouchableOpacity>
+                <Image source={require("../../assets/HandWithPhoneAlert.png")} />
+                <Text>Onde colocar o alerta?</Text>
+                <TouchableOpacity style={styles.chooseOnMapButton}>
+                    <Text style={styles.chooseOnMapButtonText}>Escolher no mapa</Text>
+                </TouchableOpacity>
+                <Text>Usar localização atual</Text>
             </Modal>
         </View>
     )

@@ -101,7 +101,25 @@ const styles = StyleSheet.create({
     },
     important: {
         color: "#EBDF2D",
-    }
+    },
+    placeAlertModalContainer: {
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "#1E1D1C",
+    },
+    chooseOnMapModalCloseText: {
+        color: "#A4A5A5",
+    },
+    chooseOnMapButton: {
+        backgroundColor: "#EBDF2D",
+        padding: 14,
+        borderRadius: 6,
+    },
+    chooseOnMapButtonText: {
+        color: "#1E1D1C",
+        textAlign: "center",
+        fontWeight: "bold",
+    },
 })
 
 export default styles;
