@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import { PermissionsAndroid, View } from 'react-native';
+import { View, Text } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import Geolocation, { getCurrentPosition } from 'react-native-geolocation-service';
-import Toast from 'react-native-toast-message';
 import MapMenu from '../../components/MapMenu';
 import MenuIcons from '../../components/MenuIcons';
 import styles from './styles';
 import AlertModal from '../../components/AlertModal';
+import LocalDetails from '../../components/LocalDetails';
 
 import { suspectMarkers, carMarkers, weaponMarkers } from './markers';
 
-import { darkMode, standardMode } from './mapStyles';
+import { darkMode } from './mapStyles';
 
 const Home = ({ navigation }) => {
 
@@ -25,25 +24,19 @@ const Home = ({ navigation }) => {
         longitudeDelta: 0.04,
     })
 
-    // useEffect(() => {
-    //     getCurrentPosition()
-    // }, [])
-
     const [reportButtonEnable, setReportButtonEnable] = useState(true);
 
-    // const addToMarkers = (e) => {
-    //     const coordinates = e.coordinate;
+    // STATES FOR Local Modal
 
-    //     const newMarker = {
-    //         latitude: coordinates.latitude,
-    //         longitude: coordinates.longitude,
-    //     }
+    const [isLocalDetailsVisible, setIsLocalDetailsVisible] = useState(false);
+    const [typeLocalDetails, setTypeLocalDetails] = useState("");
 
-    //     Toast.show({
-    //         type: 'success',
-    //         text1: 'Novo local adicionado!'
-    //     })
-    // }
+    // ---------------------------
+
+    const changeLocalDetailsInfo = (type) => {
+        setTypeLocalDetails(type);
+        setIsLocalDetailsVisible(true);
+    }
 
     return (
         <View style={styles.container}>
@@ -57,28 +50,28 @@ const Home = ({ navigation }) => {
                 loadingBackgroundColor='#404040'
                 minZoomLevel={0}
                 maxZoomLevel={20}
-                // onPress={e => addToMarkers(e.nativeEvent)}
                 customMapStyle={darkMode}
             >
                 {suspectMarkers.map((item, index) => (
-                    <Marker key={index} coordinate={{
+                    <Marker onPress={() => changeLocalDetailsInfo("Pessoa suspeita")} key={index} coordinate={{
                         latitude: item.latitude,
                         longitude: item.longitude,
                     }} icon={require('../../assets/SuspectIcon.png')} />
                 ))}
                 {carMarkers.map((item, index) => (
-                    <Marker key={index} coordinate={{
+                    <Marker onPress={() => changeLocalDetailsInfo("Carro suspeito")} key={index} coordinate={{
                         latitude: item.latitude,
                         longitude: item.longitude,
                     }} icon={require('../../assets/CarIcon.png')} />
                 ))}
                 {weaponMarkers.map((item, index) => (
-                    <Marker key={index} coordinate={{
+                    <Marker onPress={() => changeLocalDetailsInfo("Assalto")} key={index} coordinate={{
                         latitude: item.latitude,
                         longitude: item.longitude,
                     }} icon={require('../../assets/WeaponIcon.png')} />
                 ))}
             </MapView>
+            {isLocalDetailsVisible && <LocalDetails setIsLocalDetailsVisible={setIsLocalDetailsVisible} typeLocalDetails={typeLocalDetails} />}
             {reportButtonEnable
                 ? <MapMenu navigation={navigation} setReportButtonEnable={setReportButtonEnable} />
                 : <MenuIcons navigation={navigation} setReportButtonEnable={setReportButtonEnable} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
