@@ -6,7 +6,7 @@ const gray = '#3C3C3C'
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        flex: 1,
+        display: "flex",
         flexDirection: 'row',
         justifyContent: 'center',
         width: "100%",
@@ -39,8 +39,7 @@ const styles = StyleSheet.create({
     },
     iconsButton: {
         position: 'absolute',
-        flex: 1,
-        justifyContent: 'center',
+        display: "flex",
         alignItems: 'center',
         bottom: 30,
         width: "60%",

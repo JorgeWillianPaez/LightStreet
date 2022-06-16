@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#1E1D1C",
         borderRadius: 18,
         display: "flex",
+        height: "85%"
     },
     modalHeaderContainer: {
         position: "absolute",
@@ -35,9 +36,9 @@ const styles = StyleSheet.create({
     contentContainer: {
         marginTop: 50,
         padding: 20,
-        height: "100%",
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "space-between",
+        height: "92%"
     },
     selectTypeContainer: {
         position: "relative",
@@ -104,22 +105,38 @@ const styles = StyleSheet.create({
     },
     placeAlertModalContainer: {
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-evenly",
+        alignItems: "center",
         backgroundColor: "#1E1D1C",
+        height: "60%",
+        borderRadius: 18,
     },
     chooseOnMapModalCloseText: {
+        position: "absolute",
         color: "#A4A5A5",
+        fontSize: 24,
+        right: 4,
+        top: -10
     },
     chooseOnMapButton: {
         backgroundColor: "#EBDF2D",
         padding: 14,
         borderRadius: 6,
+        width: "90%",
     },
     chooseOnMapButtonText: {
         color: "#1E1D1C",
         textAlign: "center",
         fontWeight: "bold",
     },
+    alertAddedWithSuccessModal: {
+        backgroundColor: "#1E1D1C",
+        borderRadius: 18,
+        height: "40%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+    }
 })
 
 export default styles;
