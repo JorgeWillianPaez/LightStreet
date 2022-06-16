@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     commentTextArea: {
         color: "#FFFFFF",
         backgroundColor: "#151515",
-        height: 120,
         padding: 10,
         borderRadius: 6,
     },

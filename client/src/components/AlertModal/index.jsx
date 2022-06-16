@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from './styles';
 import Modal from 'react-native-modal';
 import RNPickerSelect from 'react-native-picker-select';
+import Button from '../Button';
 
 const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, setRNPickerSelectIcon }) => {
 
@@ -54,7 +55,7 @@ const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, set
                         </View>
                         <View>
                             <Text style={styles.label}>Descrição <Text style={styles.important}>*</Text></Text>
-                            <TextInput style={styles.commentTextArea} placeholder='Comente o que aconteceu' placeholderTextColor="#A4A5A5" ></TextInput>
+                            <TextInput multiline={true} numberOfLines={4} style={styles.commentTextArea} placeholder='Comente o que aconteceu' placeholderTextColor="#A4A5A5" ></TextInput>
                         </View>
                         <View>
                             <Text style={styles.label}>

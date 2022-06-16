@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 
-const MapMenu = ({ setReportButtonEnable }) => {
+const MapMenu = ({ setReportButtonEnable, navigation }) => {
 
     return (
         <View style={styles.container}>
@@ -18,7 +18,7 @@ const MapMenu = ({ setReportButtonEnable }) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.shareAndSettings}>
-                <TouchableOpacity style={styles.buttonsMenu} >
+                <TouchableOpacity style={styles.buttonsMenu} onPress={() => navigation.navigate('SettingsPage')} >
                     <Image source={require('../../assets/SettingsIcon.png')} style={{ width: 30, height: 30 }} />
                     <Text style={{ color: '#FFFFFF' }}>Configurações</Text>
                 </TouchableOpacity>

@@ -8,6 +8,7 @@ import Toast from 'react-native-toast-message';
 import LoginForm from './src/pages/LoginForm';
 import Home from './src/pages/Home';
 import SignInForm from './src/pages/SignInForm';
+import Settings from './src/pages/Settings';
 
 export default function App() {
 
@@ -15,6 +16,7 @@ export default function App() {
 
     return (
         <Provider store={store}>
+            <StatusBar style='auto' />
             <NavigationContainer>
                 <Stack.Navigator screenOptions={{
                     headerShown: false,
@@ -22,6 +24,7 @@ export default function App() {
                     <Stack.Screen name='LoginPage' component={LoginForm} />
                     {/* <Stack.Screen name='SignInPage' component={SignInForm} /> */}
                     <Stack.Screen name='HomePage' component={Home} />
+                    <Stack.Screen name='SettingsPage' component={Settings} />
                 </Stack.Navigator>
                 <Toast />
             </NavigationContainer>
