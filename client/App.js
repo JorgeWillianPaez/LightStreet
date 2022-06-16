@@ -17,7 +17,7 @@ export default function App() {
         <Provider store={store}>
             <NavigationContainer>
                 <Stack.Navigator screenOptions={{
-                    headerShown: false
+                    headerShown: false,
                 }}>
                     <Stack.Screen name='LoginPage' component={LoginForm} />
                     {/* <Stack.Screen name='SignInPage' component={SignInForm} /> */}

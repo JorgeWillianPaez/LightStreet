@@ -3,9 +3,10 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     modalContainer: {
         position: "relative",
-        backgroundColor: "#3A3A3A",
+        backgroundColor: "#1E1D1C",
         borderRadius: 18,
         display: "flex",
+        height: "85%"
     },
     modalHeaderContainer: {
         position: "absolute",
@@ -35,21 +36,30 @@ const styles = StyleSheet.create({
     contentContainer: {
         marginTop: 50,
         padding: 20,
-        height: "100%",
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
+        height: "92%"
     },
     selectTypeContainer: {
+        position: "relative",
         backgroundColor: "#151515",
         borderRadius: 6,
+        padding: 4
     },
     selectTypeText: {
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+    },
+    selectTypeImage: {
+        position: "absolute",
+        right: 10,
+        top: 5,
+        width: 50,
+        height: 50
     },
     commentTextArea: {
         color: "#FFFFFF",
         backgroundColor: "#151515",
-        height: 100,
+        height: 120,
         padding: 10,
         borderRadius: 6,
     },
@@ -64,13 +74,68 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     createModalButtonText: {
-        color: "#000000",
+        color: "#151515",
         textAlign: "center",
         fontWeight: "bold",
         fontSize: 18
     },
+    dateHourContainer: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        color: "#FFFFFF"
+    },
+    dateHourContent: {
+        backgroundColor: "#151515",
+        height: 70,
+        borderRadius: 6,
+    },
+    dateContent: {
+        width: "48%",
+    },
+    hourContent: {
+        width: "48%",
+    },
+    addImage: {
+        width: 50,
+        height: 50,
+    },
     important: {
         color: "#EBDF2D",
+    },
+    placeAlertModalContainer: {
+        display: "flex",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        backgroundColor: "#1E1D1C",
+        height: "60%",
+        borderRadius: 18,
+    },
+    chooseOnMapModalCloseText: {
+        position: "absolute",
+        color: "#A4A5A5",
+        fontSize: 24,
+        right: 4,
+        top: -10
+    },
+    chooseOnMapButton: {
+        backgroundColor: "#EBDF2D",
+        padding: 14,
+        borderRadius: 6,
+        width: "90%",
+    },
+    chooseOnMapButtonText: {
+        color: "#1E1D1C",
+        textAlign: "center",
+        fontWeight: "bold",
+    },
+    alertAddedWithSuccessModal: {
+        backgroundColor: "#1E1D1C",
+        borderRadius: 18,
+        height: "40%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-evenly",
     }
 })
 

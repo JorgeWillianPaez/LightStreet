@@ -15,6 +15,7 @@ import { darkMode, standardMode } from './mapStyles';
 const Home = () => {
 
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [rnPickerSelectIcon, setRNPickerSelectIcon] = useState("Suspect Person");
     const [locationPermission, setLocationPermission] = useState(false);
 
     const [region, setRegion] = useState({
@@ -82,7 +83,7 @@ const Home = () => {
                 ? <MapMenu setReportButtonEnable={setReportButtonEnable} />
                 : <MenuIcons setReportButtonEnable={setReportButtonEnable} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
             }
-            <AlertModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+            <AlertModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} rnPickerSelectIcon={rnPickerSelectIcon} setRNPickerSelectIcon={setRNPickerSelectIcon} />
         </View>
     )
 }
