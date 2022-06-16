@@ -3,7 +3,6 @@ import { ScrollView, View, Text, TextInput, TouchableOpacity, PermissionsAndroid
 import Toast from 'react-native-toast-message'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from '@react-navigation/native';
 
 const LoginForm = ({ navigation }) => {
 

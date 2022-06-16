@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { PermissionsAndroid, View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import Geolocation, { getCurrentPosition } from 'react-native-geolocation-service';
@@ -12,7 +12,7 @@ import { suspectMarkers, carMarkers, weaponMarkers } from './markers';
 
 import { darkMode, standardMode } from './mapStyles';
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [rnPickerSelectIcon, setRNPickerSelectIcon] = useState("Suspect Person");
@@ -80,8 +80,8 @@ const Home = () => {
                 ))}
             </MapView>
             {reportButtonEnable
-                ? <MapMenu setReportButtonEnable={setReportButtonEnable} />
-                : <MenuIcons setReportButtonEnable={setReportButtonEnable} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+                ? <MapMenu navigation={navigation} setReportButtonEnable={setReportButtonEnable} />
+                : <MenuIcons navigation={navigation} setReportButtonEnable={setReportButtonEnable} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
             }
             <AlertModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} rnPickerSelectIcon={rnPickerSelectIcon} setRNPickerSelectIcon={setRNPickerSelectIcon} />
         </View>
