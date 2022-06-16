@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Input, Image } from "react-native";
 import styles from "./styles";
 
-const Settings = ({ navigation: { goBack } }) => {
+const Settings = ({ navigation: { goBack, navigate } }) => {
     return (
         <View style={styles.container}>
             <View style={{ position: "relative", width: "100%" }}>
@@ -60,7 +60,7 @@ const Settings = ({ navigation: { goBack } }) => {
                     <Image style={styles.buttonArrowImage} source={require("../../assets/ButtonSettings.png")} />
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate("LoginPage")}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigate("LoginPage")}>
                 <View style={styles.buttonContent} >
                     <Image source={require("../../assets/LogoutSettingsIcon.png")} />
                     <Text style={styles.buttonsText}>Sair</Text>

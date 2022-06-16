@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 import styles from './styles';
 import Modal from 'react-native-modal';
 import RNPickerSelect from 'react-native-picker-select';
-import Button from '../Button';
 
 const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, setRNPickerSelectIcon }) => {
 
