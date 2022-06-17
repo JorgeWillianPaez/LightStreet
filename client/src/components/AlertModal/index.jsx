@@ -4,10 +4,9 @@ import styles from './styles';
 import Modal from 'react-native-modal';
 import RNPickerSelect from 'react-native-picker-select';
 
-const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, setRNPickerSelectIcon }) => {
+const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, setRNPickerSelectIcon, setChooseOnMapDisabled, alertAddedModalVisible, setAlertAddedModalVisible }) => {
 
     const [isPlaceAlertModalVisible, setIsPlaceAlertModalVisible] = useState(false);
-    const [alertAddedModalVisible, setAlertAddedModalVisible] = useState(false);
 
     const switchModalVisible = () => {
         setIsPlaceAlertModalVisible(true);
@@ -16,7 +15,7 @@ const AlertModal = ({ isModalVisible, setIsModalVisible, rnPickerSelectIcon, set
 
     const switchModalVisible2 = () => {
         setIsPlaceAlertModalVisible(false);
-        setAlertAddedModalVisible(true);
+        setChooseOnMapDisabled(false);
     }
 
     const hideAlertAddedModal = () => {
